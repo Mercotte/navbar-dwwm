@@ -1,4 +1,6 @@
-* {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,13 +12,18 @@ body {
   line-height: 1.5;
   font-size: 1rem;
 }
+.header {
+  display: block;
+  background-color: white;
+  box-shadow: darkgray 0 15px 15px;
+}
 .logo {
   height: 50px;
 }
 
 .nav-header {
   display: flex;
-  align-items: center;
+
   justify-content: space-between;
   padding: 1rem;
   background: white;
@@ -27,15 +34,13 @@ body {
   background-color: transparent;
   border-color: transparent;
   transition: all 0.5s linear;
-  cursor: pointer;
-  position: fixed;
   top: 2rem;
   right: 3rem;
   line-height: 2rem;
 }
 .nav-toggle:hover {
   color: red;
-  transform: rotate(180deg);
+  transform: rotate(90deg);
 }
 
 .links a {
@@ -47,17 +52,21 @@ body {
   text-transform: capitalize;
   display: block;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 .links {
-  display: flex;
-  justify-content: space-between;
+  display: block;
   height: 0;
   overflow: hidden;
+  transition: all 0.3s linear;
+}
+.show-links {
+  height: 15rem;
 }
 
 li {
   list-style-type: none;
-  display: flex;
+  display: list-item;
 }
 .links a:hover {
   transition: all 0.3s linear;
@@ -66,7 +75,7 @@ li {
 
 .social-icons {
   color: rgb(2, 2, 49);
-  display: flex;
+  display: none;
   justify-self: center;
   padding: 1.5rem;
   cursor: pointer;
@@ -81,13 +90,13 @@ li {
 }
 
 @media screen and (min-width: 800px) {
-  .nav-center {
-    max-width: 1170px;
+  .header {
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    background-color: white;
   }
   .nav-header {
     padding: 0;
